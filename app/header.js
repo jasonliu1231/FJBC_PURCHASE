@@ -2,6 +2,7 @@
 
 import { Navbar, NavbarItem, NavbarSection } from "@/components/navbar";
 import { useEffect } from "react";
+import { Strong, Text, TextLink } from "@/components/text";
 
 const items = [
   {
@@ -52,7 +53,16 @@ export default function HeaderPage() {
         ))}
       </NavbarSection>
       <NavbarSection>
-        <NavbarItem href="/">登出</NavbarItem>
+        <NavbarItem
+          onClick={() => {
+            localStorage.removeItem("access_token");
+            localStorage.removeItem("client_id");
+
+            window.location.href = "/";
+          }}
+        >
+          <Text>登出</Text>
+        </NavbarItem>
       </NavbarSection>
     </Navbar>
   );

@@ -56,8 +56,8 @@ export default function Home() {
       <div className="flex justify-between items-center">
         <div className="text-blue-500 font-bold text-xl m-5">未審核零用金</div>
         <div>
-          <div className="text-pink-600">前期餘額：{billAmount.list_amount.toLocaleString()}</div>
-          <div className="text-red-600">當前餘額：{billAmount.current_amount.toLocaleString()}</div>
+          <div className="text-pink-600">前期餘額：{billAmount.list_amount || 0}</div>
+          <div className="text-red-600">當前餘額：{billAmount.current_amount || 0}</div>
         </div>
       </div>
 
