@@ -14,8 +14,6 @@ export default function Home() {
   const [loginLoading, setLoginLoading] = useState(false);
 
   async function login() {
-    setLoginLoading(true);
-
     if (loginData.username == "" || loginData.password == "") {
       alert("請輸入帳號密碼！");
       return;
@@ -32,6 +30,7 @@ export default function Home() {
         client_id: randomSixDigit
       })
     };
+    setLoginLoading(true);
     let response = await fetch(`${process.env.NEXT_PUBLIC_API_URL_8100}/fjbc_login_api/auth/login`, config);
     const data = await response.json();
     if (response.ok) {
@@ -44,8 +43,8 @@ export default function Home() {
         alert(data.detail["zh-TW"]);
       } else {
         alert("系統錯誤！");
-        setLoginLoading(false);
       }
+      setLoginLoading(false);
     }
   }
 
