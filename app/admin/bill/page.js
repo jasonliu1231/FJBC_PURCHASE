@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <div className="container mx-auto">
       <div className="flex justify-between items-center">
-        <div className="text-blue-500 font-bold text-xl m-5">未送審零用金</div>
+        <div className="text-blue-500 font-bold text-xl m-5">未審核零用金</div>
         <div>
           <div className="text-pink-600">前期餘額：{billAmount.list_amount.toLocaleString()}</div>
           <div className="text-red-600">當前餘額：{billAmount.current_amount.toLocaleString()}</div>
@@ -96,6 +96,9 @@ export default function Home() {
                 <Button
                   color="orange"
                   className="mx-1"
+                  onClick={() => {
+                    window.location.href = `/admin/bill/setting?id=${bill.bill_id}`;
+                  }}
                 >
                   修改
                 </Button>

@@ -11,7 +11,7 @@ const items = [
   },
   {
     id: 2,
-    label: "未送審列表",
+    label: "未審核零用金",
     href: "/admin/bill"
   },
   {
@@ -40,8 +40,8 @@ export default function HeaderPage() {
     getToken();
   }, []);
   return (
-    <Navbar className="bg-yellow-50 dark:bg-gray-700">
-      <NavbarSection>
+    <Navbar className="bg-yellow-50 dark:bg-gray-700 px-20">
+      <NavbarSection className="flex-1">
         {items.map((item) => (
           <NavbarItem
             key={item.id}
@@ -50,6 +50,9 @@ export default function HeaderPage() {
             {item.label}
           </NavbarItem>
         ))}
+      </NavbarSection>
+      <NavbarSection>
+        <NavbarItem href="/">登出</NavbarItem>
       </NavbarSection>
     </Navbar>
   );

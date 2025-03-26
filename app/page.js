@@ -52,9 +52,7 @@ export default function Home() {
   return (
     <div className="container mx-auto flex justify-center">
       <div className="w-md mt-40">
-        <Text className="m-5 text-center font-bold">
-          <Strong>採購明細</Strong>
-        </Text>
+        <div className="text-blue-500 font-bold text-2xl m-5 text-center">採購明細</div>
         <Field>
           <Label>帳號</Label>
           <Input
