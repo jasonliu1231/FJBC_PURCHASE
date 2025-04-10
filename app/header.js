@@ -4,10 +4,10 @@ import { Navbar, NavbarItem, NavbarSection } from "@/components/navbar";
 import { useEffect } from "react";
 import { Strong, Text, TextLink } from "@/components/text";
 
-const items = [
+const items_start = [
   {
     id: 1,
-    label: "新增表單",
+    label: "新增零用金",
     href: "/admin/bill/create"
   },
   {
@@ -17,11 +17,19 @@ const items = [
   },
   {
     id: 3,
+    label: "零用金查詢",
+    href: "/admin/bill/search"
+  }
+];
+
+const items_end = [
+  {
+    id: 1,
     label: "部門設定",
     href: "/admin/department"
   },
   {
-    id: 4,
+    id: 2,
     label: "供應商設定",
     href: "/admin/supplier"
   }
@@ -40,10 +48,11 @@ export default function HeaderPage() {
 
     getToken();
   }, []);
+
   return (
     <Navbar className="bg-yellow-50 dark:bg-gray-700 px-20">
       <NavbarSection className="flex-1">
-        {items.map((item) => (
+        {items_start.map((item) => (
           <NavbarItem
             key={item.id}
             href={item.href}
@@ -53,6 +62,14 @@ export default function HeaderPage() {
         ))}
       </NavbarSection>
       <NavbarSection>
+        {items_end.map((item) => (
+          <NavbarItem
+            key={item.id}
+            href={item.href}
+          >
+            {item.label}
+          </NavbarItem>
+        ))}
         <NavbarItem
           onClick={() => {
             localStorage.removeItem("access_token");

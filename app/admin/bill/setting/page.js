@@ -273,7 +273,18 @@ export default function Home() {
           </Field>
         </div>
       </div>
-      <div>商品明細</div>
+      <div className="flex justify-between items-center">
+        <div className="text-blue-500 font-bold text-xl m-5">商品明細</div>
+        <Button
+          color="yellow"
+          onClick={() => {
+            setCreateDetail([...createData.detail, { content: "", money: 0, quantity: 0, unit: "", remark: "" }]);
+          }}
+        >
+          新增明細
+        </Button>
+      </div>
+
       <div className="mt-2">
         {createDetail.map((item, index) => (
           <div
@@ -370,7 +381,7 @@ export default function Home() {
                 }}
               />
             </Field>
-            <Field className="col-span-5">
+            <Field className="col-span-6">
               <Label>備注</Label>
               <Input
                 name="remark"
@@ -391,7 +402,7 @@ export default function Home() {
                 }}
               />
             </Field>
-            <Field className="col-span-1 flex justify-center items-center">
+            {/* <Field className="col-span-1 flex justify-center items-center">
               <Button
                 color="red"
                 onClick={() => {
@@ -400,7 +411,7 @@ export default function Home() {
               >
                 刪除
               </Button>
-            </Field>
+            </Field> */}
           </div>
         ))}
       </div>

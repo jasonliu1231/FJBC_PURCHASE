@@ -270,7 +270,7 @@ export default function Home() {
           </Field>
         </div>
       </div>
-      <div>商品明細</div>
+      <div className="text-blue-500 font-bold text-xl m-5">商品明細</div>
       <div className="mt-2">
         {createDetail.map((item, index) => (
           <div

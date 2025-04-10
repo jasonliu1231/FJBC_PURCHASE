@@ -46,6 +46,24 @@ export default function Home() {
     }
   }
 
+  async function billReview(id) {
+    const config = {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        clientid: `${localStorage.getItem("client_id")}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ bill_id: id })
+    };
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL_8102}/fjbc_tutoring_api/bill`, config);
+    const res = await response.json();
+    if (response.ok) {
+      getBillList();
+      getBillAmount();
+    }
+  }
+
   useEffect(() => {
     getBillList();
     getBillAmount();
@@ -110,7 +128,14 @@ export default function Home() {
                     已送審
                   </Button>
                 ) : (
-                  <Button color="green">送審</Button>
+                  <Button
+                    onClick={() => {
+                      billReview(bill.bill_id);
+                    }}
+                    color="green"
+                  >
+                    送審
+                  </Button>
                 )}
               </TableCell>
             </TableRow>
