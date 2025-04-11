@@ -89,7 +89,7 @@ export default function Home() {
           {billDetailList.map((item) => (
             <TableRow
               key={item.id}
-              className="hover:bg-blue-50"
+              className="hover:bg-blue-50 dark:hover:bg-gray-700"
             >
               <TableCell>{item.date}</TableCell>
               <TableCell>{item.department_name}</TableCell>

@@ -147,13 +147,14 @@ export default function Home() {
             <TableHeader>單位</TableHeader>
             <TableHeader>小計</TableHeader>
             <TableHeader>備註</TableHeader>
+            <TableHeader>經辦人</TableHeader>
           </TableRow>
         </TableHead>
         <TableBody>
           {billDetailList.map((item) => (
             <TableRow
               key={item.bill_detail_id}
-              className="hover:bg-blue-50"
+              className="hover:bg-blue-50 dark:hover:bg-gray-700"
             >
               <TableCell>{item.date}</TableCell>
               <TableCell>{item.department_name}</TableCell>
@@ -163,6 +164,7 @@ export default function Home() {
               <TableCell>{item.unit}</TableCell>
               <TableCell>{item.money}</TableCell>
               <TableCell>{item.remark}</TableCell>
+              <TableCell>{item.first_name}</TableCell>
             </TableRow>
           ))}
         </TableBody>

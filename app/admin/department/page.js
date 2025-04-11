@@ -141,7 +141,7 @@ export default function Home() {
           {departmentList.map((department) => (
             <TableRow
               key={department.id}
-              className="hover:bg-blue-50"
+              className="hover:bg-blue-50 dark:hover:bg-gray-700"
             >
               <TableCell className="font-medium">{department.name}</TableCell>
               <TableCell className="font-medium">{department.enable ? "啟用中" : "關閉中"}</TableCell>

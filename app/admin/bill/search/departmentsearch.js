@@ -82,10 +82,10 @@ export default function Home() {
           {selectItem.date} {selectItem.content}
         </DialogTitle>
         <DialogDescription>
-          <div>單位：{selectItem.department_name}</div>
-          <div>總支出：{selectItem.amount}</div>
-          <div>發票：{selectItem.invoice}</div>
-          <div>供應商：{selectItem.supplier_name}</div>
+          <span className="mr-4">單位：{selectItem.department_name}</span>
+          <span className="mr-4">總支出：{selectItem.amount}</span>
+          <span className="mr-4">發票：{selectItem.invoice}</span>
+          <span className="mr-4">供應商：{selectItem.supplier_name}</span>
         </DialogDescription>
         <DialogBody>
           <Table
@@ -105,7 +105,7 @@ export default function Home() {
               {selectItem.detail?.map((item) => (
                 <TableRow
                   key={item.id}
-                  className="hover:bg-blue-50"
+                  className="hover:bg-blue-50 dark:hover:bg-gray-700"
                 >
                   <TableCell>{item.content}</TableCell>
                   <TableCell>{item.quantity}</TableCell>
@@ -204,6 +204,7 @@ export default function Home() {
             <TableHeader>總計</TableHeader>
             <TableHeader>發票</TableHeader>
             <TableHeader>備註</TableHeader>
+            <TableHeader>經辦人</TableHeader>
             <TableHeader>設定</TableHeader>
           </TableRow>
         </TableHead>
@@ -211,7 +212,7 @@ export default function Home() {
           {billList.map((bill) => (
             <TableRow
               key={bill.bill_id}
-              className="hover:bg-blue-50"
+              className="hover:bg-blue-50 dark:hover:bg-gray-700"
             >
               <TableCell>{bill.date}</TableCell>
               <TableCell>{bill.department_name}</TableCell>
@@ -221,6 +222,7 @@ export default function Home() {
               <TableCell>{bill.amount}</TableCell>
               <TableCell>{bill.invoice}</TableCell>
               <TableCell>{bill.remark}</TableCell>
+              <TableCell>{bill.first_name}</TableCell>
               <TableCell>
                 <Button
                   color="cyan"

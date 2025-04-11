@@ -141,7 +141,7 @@ export default function Home() {
           {supplierList.map((supplier) => (
             <TableRow
               key={supplier.id}
-              className="hover:bg-blue-50"
+              className="hover:bg-blue-50 dark:hover:bg-gray-700"
             >
               <TableCell className="font-medium">{supplier.name}</TableCell>
               <TableCell className="font-medium">{supplier.enable ? "啟用中" : "關閉中"}</TableCell>
