@@ -22,7 +22,13 @@ export default function Home() {
     invoice: "",
     remark: ""
   });
-  const [createDetail, setCreateDetail] = useState([{ content: "", money: 0, quantity: 0, unit: "", remark: "" }]);
+  const [createDetail, setCreateDetail] = useState([
+    { content: "", money: 0, quantity: 0, unit: "", remark: "" },
+    { content: "", money: 0, quantity: 0, unit: "", remark: "" },
+    { content: "", money: 0, quantity: 0, unit: "", remark: "" },
+    { content: "", money: 0, quantity: 0, unit: "", remark: "" },
+    { content: "", money: 0, quantity: 0, unit: "", remark: "" }
+  ]);
   const [discount, setDiscount] = useState({
     content: "折扣(正數代表增加)",
     money: 0,
@@ -106,6 +112,7 @@ export default function Home() {
     const res = await response.json();
     if (response.ok) {
       alert("新增完成！");
+      window.location.href = "/admin/bill";
     } else {
     }
   }
@@ -150,7 +157,7 @@ export default function Home() {
         </div>
         <div>
           <Field>
-            <Label>單位</Label>
+            <Label>部門</Label>
             <Listbox
               name="tutoring_id"
               value={createData.tutoring_id}

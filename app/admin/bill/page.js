@@ -85,6 +85,24 @@ export default function Home() {
     }
   }
 
+  async function deleteBill(id) {
+    const config = {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        clientid: `${localStorage.getItem("client_id")}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ bill_id: id })
+    };
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL_8102}/fjbc_tutoring_api/bill`, config);
+    const res = await response.json();
+    if (response.ok) {
+      getBillList();
+      getBillAmount();
+    }
+  }
+
   useEffect(() => {
     getBillList();
     getBillAmount();
@@ -195,6 +213,17 @@ export default function Home() {
                     }}
                   >
                     查看明細
+                  </Button>
+                  <Button
+                    color="red"
+                    className="mx-1"
+                    onClick={() => {
+                      const check = confirm("確定要刪除嗎？");
+                      if (!check) return;
+                      deleteBill(bill.bill_id);
+                    }}
+                  >
+                    刪除
                   </Button>
                   <Button
                     color="orange"
